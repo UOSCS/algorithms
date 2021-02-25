@@ -4,11 +4,10 @@
 int main(void)
 {
     int T, x, y;
-    int tmp;
 
     scanf("%d", &T);
 
-    for(int i = 0, distance, sqrt_of_distance; i < T; i++)
+    for(int i = 0, tmp, distance, sqrt_of_distance; i < T; i++)
     {
         scanf("%d %d", &x, &y);
         distance = y - x;
