@@ -3,12 +3,12 @@
 
 int main(void)
 {
-    char A[100000], B[100000];
-    char result[100001];
+    char A[100001], B[100001];
+    char result[100002];
     char *longer, *shorter;
 
-    scanf("%s", A);
-    scanf("%s", B);
+    scanf("%100000s", A);
+    scanf("%100000s", B);
 
     if(strlen(A) > strlen(B))
     {

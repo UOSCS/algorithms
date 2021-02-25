@@ -9,7 +9,7 @@ int main(void)
     int count = 0;
     int flag = 0;
 
-    scanf("%s", input);
+    scanf("%100s", input);
     for(ptr = input; *ptr; count++, flag = 0)
     {
         for(int i = 0; i < (sizeof(tokens) / sizeof(tokens[0])) && !flag; i++)

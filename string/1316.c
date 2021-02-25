@@ -10,7 +10,7 @@ int main(void)
     scanf("%d", &N);
     char arr[N][101];
     for(int i = 0; i < N; i++)
-        scanf("%s", arr[i]);
+        scanf("%100s", arr[i]);
 
     for(int i = 0, flag = 0, index = 0; i < N; i++, flag = 0, index = 0)
     {

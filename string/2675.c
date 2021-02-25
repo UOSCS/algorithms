@@ -10,7 +10,7 @@ int main(void)
     scanf("%d", &T);
 
     for(int i = 0; i < T; i++)
-        scanf("%d %s", x + i, *(y + i));
+        scanf("%d %20s", x + i, *(y + i));
 
     for(int i = 0; i < T; i++)
     {

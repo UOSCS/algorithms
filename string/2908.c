@@ -7,7 +7,7 @@ int main(void)
     char *outcome;
     int result = 0;
 
-    scanf("%s %s", A, B);
+    scanf("%3s %3s", A, B);
 
     for(int i = strlen(A) - 1; i >= 0; i--)
     {

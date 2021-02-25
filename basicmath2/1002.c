@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    double distance, sum_of_r;
+    double sum_of_r;
     int T, **arr;
 
     scanf("%d", &T);
@@ -19,7 +19,7 @@ int main(void)
 
     for(int i = 0; i < T; i++)
     {
-        distance = sqrt(pow(arr[i][0] - arr[i][3], 2) + pow(arr[i][1] - arr[i][4], 2));
+        double distance = sqrt(pow(arr[i][0] - arr[i][3], 2) + pow(arr[i][1] - arr[i][4], 2));
         sum_of_r = arr[i][2] + arr[i][5];
 
         if(!distance)

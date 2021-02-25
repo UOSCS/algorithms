@@ -5,14 +5,11 @@ int main(void)
     int N;
     int count = 0;
     int arr[4];
-    int index;
-    int prev;
 
     scanf("%d", &N);
 
-    for(int i = 1; i <= N; i++)
+    for(int i = 1, index = 0, prev = 0; i <= N; i++, prev = index = 0)
     {
-        prev = index = 0;
         if(i < 100)
             count++;
         else

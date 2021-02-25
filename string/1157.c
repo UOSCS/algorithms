@@ -3,12 +3,12 @@
 
 int main(void)
 {
-    char input[1000000];
+    char input[1000001];
     int count[26] = {0};
     int max_index = 0;
     int flag = 0;
 
-    scanf("%s", input);
+    scanf("%1000000s", input);
 
     for(int i = 0; i < strlen(input); i++)
         if((input[i] >= 'a') && (input[i] <= 'z'))

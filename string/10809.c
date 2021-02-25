@@ -4,11 +4,11 @@
 int main(void)
 {
     int arr[26];
-    char input[100];
+    char input[101];
 
     memset(arr, -1, sizeof(arr));
 
-    scanf("%s", input);
+    scanf("%100s", input);
 
     for(int i = 0; i < strlen(input); i++)
         if(arr[input[i] - 'a'] == -1)

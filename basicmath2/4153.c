@@ -2,13 +2,13 @@
 
 int main(void)
 {
-    int arr[3], max = 0, sum = 0;
+    int arr[3], max, sum;
 
     while(1)
     {
         scanf("%d %d %d", arr, arr + 1, arr + 2);
 
-        if(arr[1] == 0 && arr[1] == 0 && arr[2] == 0)
+        if(arr[0] == 0 && arr[1] == 0 && arr[2] == 0)
             break;
         else
         {
