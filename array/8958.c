@@ -17,7 +17,7 @@ int main(void)
     
     for(int i = 0, result = 0, accumulation = 0; i < N; i++, result = accumulation = 0)
     {
-        arr[i][80] = NULL;
+        arr[i][80] = '\0';
         for(int j = 0; j < strlen(arr[i]); j++)
         {
             if(arr[i][j] == 'O')
