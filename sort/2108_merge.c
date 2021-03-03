@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 1000000
+#define SIZE 500001
 
 int result[SIZE];
 
@@ -42,19 +42,55 @@ void merge_sort(int arr[], int left, int right)
 
 int main(void)
 {
-    int N, *arr;
+    int N, max = -4000, min = 4000, sum = 0, *arr, prev;
 
     scanf("%d", &N);
 
     arr = malloc(sizeof(int) * N);
 
     for(int i = 0; i < N; i++)
+    {
         scanf("%d", arr + i);
+        sum += arr[i];
+        if(arr[i] > max)
+            max = arr[i];
+        if(arr[i] < min)
+            min = arr[i];
+    }
 
     merge_sort(arr, 0, N - 1);
 
-    for(int i = 0; i < N; i++)
-        printf("%d\n", arr[i]);
+    printf("%.f\n", (double)sum / N);
+
+    printf("%d\n", arr[N / 2]);
+
+    for(int i = N - 2, value = arr[N - 1], threshold = 0, count = 1, next; i >= -1; i--)
+    {
+        if(i != -1 && value == arr[i])
+            count++;
+        else
+        {
+            if(count > threshold)
+            {
+                prev = next = arr[i + 1];
+                threshold = count;
+            }
+            else if(count == threshold)
+            {
+                prev = next;
+                next = arr[i + 1];
+            }
+
+            if(i != -1)
+            {
+                count = 1; 
+                value = arr[i];
+            }
+        }
+    }
+    printf("%d\n", prev);
+
+    printf("%d\n", max - min);
 
     return 0;
 }

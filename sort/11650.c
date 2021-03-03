@@ -1,18 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 1000000
+#define SIZE 100000
 
-int result[SIZE];
+typedef struct coordinate
+{
+    int x;
+    int y;
+} Coordinate;
 
-void merge(int arr[], int left, int mid, int right)
+Coordinate result[SIZE];
+
+void merge(Coordinate *arr, int left, int mid, int right)
 {
     int i, j, index;
 
     for(index = i = left, j = mid + 1; i <= mid && j <= right; index++)
     {
-        if(arr[i] <= arr[j])
+        if(arr[i].x < arr[j].x)
             result[index] = arr[i++];
+        else if(arr[i].x == arr[j].x)
+        {
+            if(arr[i].y < arr[j].y)
+                result[index] = arr[i++];
+            else
+                result[index] = arr[j++];
+        }
         else
             result[index] = arr[j++];
     }
@@ -28,7 +41,7 @@ void merge(int arr[], int left, int mid, int right)
         arr[k] = result[k];
 }
 
-void merge_sort(int arr[], int left, int right)
+void merge_sort(Coordinate *arr, int left, int right)
 {
     if(left < right)
     {
@@ -42,19 +55,20 @@ void merge_sort(int arr[], int left, int right)
 
 int main(void)
 {
-    int N, *arr;
+    Coordinate *arr;
+    int N;
 
     scanf("%d", &N);
 
-    arr = malloc(sizeof(int) * N);
+    arr = malloc(sizeof(Coordinate) * N);
 
     for(int i = 0; i < N; i++)
-        scanf("%d", arr + i);
+        scanf("%d %d", &arr[i].x, &arr[i].y);
 
     merge_sort(arr, 0, N - 1);
 
     for(int i = 0; i < N; i++)
-        printf("%d\n", arr[i]);
+        printf("%d %d\n", arr[i].x, arr[i].y);
 
     return 0;
 }
