@@ -9,17 +9,16 @@ void dfs(int N, int index, int M)
     for(int i = 1; i <= N; i++)
         if(!visited[i])
         {
-            visited[i] = true;
             result[index] = i;
             if(index == M)
             {
-                visited[i] = false;
                 for(int j = 1; j <= index; j++)
                     printf("%d ", result[j]);
                 printf("\n");
             }
             else
             {
+                visited[i] = true;
                 dfs(N, index + 1, M);
                 visited[i] = false;
             }
@@ -28,7 +27,7 @@ void dfs(int N, int index, int M)
 
 int main(void)
 {
-    int N, M, *arr;
+    int N, M;
 
     scanf("%d %d", &N, &M);
 
