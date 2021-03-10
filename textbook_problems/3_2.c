@@ -13,11 +13,15 @@ void spiral(int **matrix, int n, int m)
         matrix[my_index / M][my_index % M] = value++;
     }
     for(int i = 0; i < m - 1; i++)
-        matrix[--my_index / M][my_index % M] = value++;
+        if(n != 1)
+            matrix[--my_index / M][my_index % M] = value++;
     for(int i = 0; i < n - 2; i++)
     {
-        my_index -= M;
-        matrix[my_index / M][my_index % M] = value++;
+        if(m != 1)
+        {
+            my_index -= M;
+            matrix[my_index / M][my_index % M] = value++;
+        }
     }
     
     if(value < N * M)
