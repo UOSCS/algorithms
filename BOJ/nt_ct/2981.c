@@ -1,63 +1,73 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+int result[1000];
+
+int get_gcd(int a, int b)
+{
+    return b == 0 ? a : get_gcd(b, a % b);
+}
+
+void merge(int arr[], int left, int mid, int right)
+{
+    int i, j, index;
+
+    for(index = i = left, j = mid + 1; i <= mid && j <= right; index++)
+    {
+        if(arr[i] < arr[j])
+            result[index] = arr[i++];
+        else
+            result[index] = arr[j++];
+    }
+
+    if(i > mid)
+        for(int k = j; k <= right; index++, k++)
+            result[index] = arr[k];
+    else
+        for(int k = i; k <= mid; index++, k++)
+            result[index] = arr[k];
+
+    for(int k = left; k <= right; k++)
+        arr[k] = result[k];
+}
+
+void merge_sort(int arr[], int left, int right)
+{
+    if(left < right)
+    {
+        int mid = (left + right) / 2;
+
+        merge_sort(arr, left, mid);
+        merge_sort(arr, mid + 1, right);
+        merge(arr, left, mid, right);
+    }
+}
 
 int main(void)
 {
-    int N, arr[100], min = 1000000000, next_min = 1000000000, flag;
+    int N, arr[100], gcd, factors[1000], index = 0;
 
     scanf("%d", &N);
     for(int i = 0; i < N; i++)
-    {
         scanf("%d", arr + i);
-        if(arr[i] < min)
-        {
-            next_min = min;
-            min = arr[i];
-        }
-        else if(arr[i] < next_min)
-            next_min = arr[i];
-    }
 
-    for(int i = 2; i <= min / 2; i++)
-    {
-        if(!(min % i))
+    gcd = abs(arr[0] - arr[1]);
+    for(int i = 1; i < N - 1; i++)
+        gcd = get_gcd(gcd, abs(arr[i] - arr[i + 1]));
+    
+    for(int i = 2; i * i <= gcd; i++)
+        if(!(gcd % i))
         {
-            flag = 1;
-            for(int j = 0; j < N; j++)
-                if(arr[j] % i)
-                {
-                    flag = 0;
-                    break;
-                }
-            if(flag)
-                printf("%d ", i);
+            factors[index++] = i;
+            if(i * i != gcd)
+                factors[index++] = gcd / i;
         }
-    }
-    for(int i = min / 2 + 1; i <= min; i++)
-    {
-        flag = 1;
-        for(int j = 0; j < N; j++)
-            if((arr[j] % i) != (min - i))
-            {
-                flag = 0;
-                break;
-            }
-        if(flag && i != 1)
-            printf("%d ", i);
-    }
-    if(next_min > 2 * min)
-        for(int divisor = min + 1, upper_bound = next_min - min; divisor <= upper_bound; divisor++)
-            if(!(upper_bound % divisor))
-            {
-                flag = 1;
-                for(int i = 0; i < N; i++)
-                    if((arr[i] % divisor) != min)
-                    {
-                        flag = 0;
-                        break;
-                    }
-                if(flag)
-                    printf("%d ", divisor);
-            }
+
+    merge_sort(factors, 0, index - 1);
+
+    for(int i = 0; i < index; i++)
+        printf("%d ", factors[i]);
+    printf("%d", gcd);
 
     return 0;
 }
