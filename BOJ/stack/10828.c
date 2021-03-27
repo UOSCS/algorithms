@@ -52,7 +52,7 @@ int main(void)
     for(int i = 0; i < N; i++)
     {
         char arr[6];
-        scanf("%6s", arr);
+        scanf("%5s", arr);
         if(!strcmp(arr, "push"))
         {
             int element;

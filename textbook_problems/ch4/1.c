@@ -16,6 +16,8 @@ int main(void)
 
     printf("The position of the last candle: %d\n", candle(A, n, k));
 
+    free(A);
+
     return 0;
 }
 

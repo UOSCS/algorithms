@@ -10,10 +10,10 @@ int gcd(int a, int b)
 
 int main(void)
 {
-    int T, N, M, g;
+    int T;
     
     scanf("%d", &T);
-    for(int i = 0; i < T; i++)
+    for(int i = 0, N, M, g; i < T; i++)
     {
         scanf("%d %d", &N, &M);
         g = gcd(N, M);

@@ -2,7 +2,7 @@
 
 unsigned long get_count_of_factor(unsigned long n, unsigned long factor)
 {
-    unsigned long result = 0;
+    unsigned long result = 0UL;
 
     for(unsigned long tmp = factor; factor <= n; factor *= tmp)
         result += n / factor;
