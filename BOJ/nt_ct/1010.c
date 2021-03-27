@@ -15,7 +15,6 @@ int dp(int n, int k)
             DP[n][k] += dp(n - 1, k - 1);
             if((n - 1) >= k)
                 DP[n][k] += dp(n - 1, k);
-            DP[n][k];
         }
         return DP[n][k];
     }
