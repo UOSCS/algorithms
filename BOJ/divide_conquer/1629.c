@@ -13,13 +13,13 @@ ull _pow(ull A, ull B, ull C)
             return A * _pow((A * A) % C, (B - 1) / 2, C) % C;
 }
 
-ull main(void)
+int main(void)
 {
     ull A, B, C;
 
-    scanf("%d%d%d", &A, &B, &C);
+    scanf("%lld%lld%lld", &A, &B, &C);
 
-    printf("%d\n", _pow(A, B, C));
+    printf("%lld\n", _pow(A, B, C));
 
     return 0;
 }
