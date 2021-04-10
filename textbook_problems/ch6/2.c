@@ -68,7 +68,7 @@ void insert_item(Heap *h, int key)
 int find_lastnode(Heap *h)
 {
     int lastnode = 1;
-    int pos_of_mib;
+    int pos_of_mib = 32;
     int length_of_int = sizeof(int) << 3;
     int n = h->size;
 

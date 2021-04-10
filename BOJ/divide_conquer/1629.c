@@ -17,9 +17,9 @@ int main(void)
 {
     ull A, B, C;
 
-    scanf("%lld%lld%lld", &A, &B, &C);
+    scanf("%llu%llu%llu", &A, &B, &C);
 
-    printf("%lld\n", _pow(A, B, C));
+    printf("%llu\n", _pow(A, B, C));
 
     return 0;
 }

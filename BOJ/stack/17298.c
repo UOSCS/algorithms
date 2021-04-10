@@ -40,5 +40,7 @@ int main(void)
     for(int i = 0; i < N; i++)
         printf("%d ", result[i]);
 
+    free(s.data);
+    
     return 0;
 }

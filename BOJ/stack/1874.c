@@ -26,7 +26,7 @@ int main(void)
             result[result_index++] = '+';
             s.data[++(s.top)] = sequence++;
         }
-        if(arr[i] == s.data[s.top])
+        if(s.top != -1 && arr[i] == s.data[s.top])
         {
             result[result_index++] = '-';
             (s.top)--;

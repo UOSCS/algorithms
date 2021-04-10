@@ -52,11 +52,10 @@ void front(Queue *q)
 int main(void)
 {
     Queue *q = malloc(sizeof(Queue));
-    int K;
-    
+
     init(q);
 
-    scanf("%d", &N, &K);
+    scanf("%d", &N);
 
     q->element = malloc(sizeof(int) * (N + 1));
     for(int i = 1; i <= N; i++)

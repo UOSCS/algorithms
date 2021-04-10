@@ -70,7 +70,7 @@ void insert_item(Heap *h, int key)
 
 char *binary_expansion(int n)
 {
-    int pos_of_mib, index = 0;
+    int pos_of_mib = 32, index = 0;
     int length_of_int = sizeof(int) << 3;
     char *arr = malloc(length_of_int);
 
