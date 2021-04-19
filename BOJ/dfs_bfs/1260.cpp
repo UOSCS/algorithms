@@ -20,8 +20,6 @@ void dfs(int node)
 
 void bfs(int node)
 {
-    int next_node;
-
     is_visited[node] = true;
     cout << node << ' ';
     for(int i = 0; i < graph[node].size(); i++)
@@ -32,7 +30,7 @@ void bfs(int node)
         }
     if(!q.empty())
     {
-        next_node = q.front();
+        int next_node = q.front();
         q.pop();
         bfs(next_node);
     }

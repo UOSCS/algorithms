@@ -6,7 +6,7 @@
 using namespace std;
 
 int N, dx[4] = {0, 0, -1, 1}, dy[4] = {-1, 1, 0, 0};
-bool arr[25][25], is_visited[25][25];
+int arr[25][25], is_visited[25][25];
 
 void dfs(int x, int y, int &count)
 {
