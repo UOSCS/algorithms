@@ -34,7 +34,7 @@ int delete_min_heap(Heap *h)
 
     for(int child = 2; child <= h->heap_size; parent = child, child *= 2)
     {
-        if(h->heap[child] > h->heap[child + 1])
+        if(child + 1 <= h->heap_size && h->heap[child] > h->heap[child + 1])
             child++;
 
         if(h->heap[child] < key)
