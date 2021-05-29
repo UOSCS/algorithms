@@ -25,12 +25,10 @@ void prim()
         pq.pop();
         if(!visited[t])
         {
+            visited[t] = true;
             weight += v.first;
             for(int i = 0; i < p[t].size(); i++)
-            {
-                visited[t] = true;
                 pq.push(p[t][i]);
-            }
         }
     }
 }
