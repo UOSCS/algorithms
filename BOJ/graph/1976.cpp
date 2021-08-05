@@ -16,6 +16,9 @@ void merge(int i, int j)
 {
     i = find(i), j = find(j);
 
+    if(i == j)
+        return;
+
     if(abs(parent[i]) >= abs(parent[j]))
     {
         parent[i] += parent[j];
@@ -45,10 +48,10 @@ int main(void)
 
             cin >> is_connected;
 
-            if(is_connected && find(i) != find(j))
+            if(is_connected)
                 merge(i, j);
         }
-        
+
     for(int i = 0, root; i < M; i++)
     {
         int tmp;
