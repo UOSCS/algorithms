@@ -7,7 +7,7 @@ int main(void)
 {
     ios::sync_with_stdio(0);
 
-    int N, K, arr[100000], diff[100000];
+    int N, K, arr[300000], diff[300000];
 
     cin >> N >> K;
     for(int i = 0; i < N; i++)
