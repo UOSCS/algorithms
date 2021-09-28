@@ -12,12 +12,12 @@ void eratos(int B)
         arr[i] = i;
 
     for(int i = 2; i * i <= B; i++)
-        if(arr[i] == i)
+        if(arr[i])
             for(int j = i * i; j <= B; j += i)
                 arr[j] = 0;
 
     for(int i = 2; i <= B; i++)
-        if(arr[i]== i)
+        if(arr[i])
             primes.push_back(i);
 }
 
@@ -25,9 +25,9 @@ int count_primes(int n)
 {
     if(dp[n]) return dp[n];
 
-    if(arr[n] == n) dp[n] = 1;
-    else if(!(arr[n] & 1)) dp[n] = count_primes(n >> 1) + 1;
-    else if(arr[n] & 1)
+    if(arr[n]) dp[n] = 1;
+    else if(!(n & 1)) dp[n] = count_primes(n >> 1) + 1;
+    else if(n & 1)
         for(size_t i = 0; i < primes.size(); i++)
             if(!(n % primes[i]))
             {
@@ -52,11 +52,8 @@ int main(void)
     int answer = 0;
 
     for(int i = A; i <= B; i++)
-    {
-        int tmp = count_primes(i);
-        if(arr[tmp] == tmp)
+        if(arr[count_primes(i)])
             answer++;
-    }
 
     cout << answer;
 
