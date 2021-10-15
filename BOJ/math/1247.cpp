@@ -23,8 +23,8 @@ int main(void)
             
             cin >> n;
 
-            if(answer > LONG_LONG_MAX - n) overflow++;
-            else if(answer < LONG_LONG_MIN - n) overflow--;
+            if(answer > 0 && n > 0 && answer > LONG_LONG_MAX - n) overflow++;
+            else if(answer < 0 && n < 0 && answer < LONG_LONG_MIN - n) overflow--;
 
             answer += n;
         }
