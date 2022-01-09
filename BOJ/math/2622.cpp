@@ -12,7 +12,7 @@ int main(void)
 
     int count = 0;
 
-    for(int a = 1; a <= N >> 1; a++)
+    for(int a = 1; a <= N / 3; a++)
     {
         for(int b = a; b <= N >> 1; b++)
         {
