@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        
+        int low = 0, high = 0, answer = 0;
+        map<char, int> m;
+        
+        while (low <= high && high < s.length()) {
+            if (m[s[high]] == 1)
+                --m[s[low++]];
+            else {
+                answer = max(answer, high - low + 1);
+                ++m[s[high++]];
+            }
+        }
+        
+        return answer;
+    }
+};
